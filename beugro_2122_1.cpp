@@ -15,12 +15,43 @@ using namespace std;
 */
 
 // Innentol
-
+bool paros(int a) {
+    return a % 2 == 0;
+}
+struct KetSzam {
+    int egyik, masik;
+    KetSzam() {}
+    KetSzam(int a, int b) : egyik(a), masik(b) {}
+};
+KetSzam ujKetSzam(int a, int b) {
+    return KetSzam(a, b);
+}
+void lenullaz(KetSzam& k) {
+    k.egyik = 0;
+    k.masik = 0;
+}
+bool helyes(string zarojelezes) {
+    int bal = 0;
+    for (char c : zarojelezes) {
+        if (c == '('){
+            bal++;
+        }
+        if (c == ')') {
+            if (bal > 0) {
+                bal--;
+            } else {
+                return false;
+            }
+        }
+    }
+    if (bal > 0)
+        return false;
+    return true;
+}
 // Idaig
 
 int main()
 {
-/*
     int pont = 0;
     srand(time(0));
     int rnd = rand()%100;
@@ -37,6 +68,7 @@ int main()
 
     //helyes az a z�r�jelez�s amelyiket ki lehet eg�sz�teni besz�rt sz�mokkal �s m�veletekkel �rtelmes aritmetikai kifejez�ss�
     ellenoriz(helyes("(()(()))") && !helyes("()(") && !helyes(")("), pont)
+/*
 */
 
     cout << endl << pont << "/5 pont";

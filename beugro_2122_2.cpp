@@ -15,7 +15,30 @@ using namespace std;
 */
 
 // Innentol
-
+bool az_egyik_a_val_kezdodik(string s1, string s2) {
+    return (s1[0] == 'a' or s2[0] == 'a');
+}
+string vissza(string s) {
+    string vissza;
+    for (int i = s.size()-1; i >= 0; i--) {
+        vissza += s[i];
+    }
+    return vissza;
+}
+struct K {
+    int a, b;
+};
+void kezel(K & valami) {
+    valami.b = valami.a;
+}
+int osszesen(K k) {
+    return (k.a + k.b);
+}
+vector<int> rejtveny() {
+    vector<int> v(10, 0);
+    v[0] = 10;
+    return v;
+}
 // Idaig
 
 int main()
@@ -23,7 +46,6 @@ int main()
     int pont = 0;
     srand(time(0));
 
-/*
     ellenoriz(az_egyik_a_val_kezdodik("abc","bca") &&
               az_egyik_a_val_kezdodik("bca","abc") &&
               !az_egyik_a_val_kezdodik("bca","bca") , pont)
@@ -57,6 +79,7 @@ int main()
         szorzat *= a;
     }
     ellenoriz(valami.size() == 10 && szorzat == 0 && sum == 10 , pont)
+/*
 */
 
     cout << endl << pont << "/5 pont";

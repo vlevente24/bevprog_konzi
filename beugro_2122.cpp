@@ -14,12 +14,46 @@ using namespace std;
 */
 
 // Innentol
+int masodikszamjegy(int a) {
+    return (a % 100) / 10;
+}
+void megdolgoz(string& s) {
+    s = "masik";
+}
+struct Csomag {
+    int x, y;
+    Csomag() {}
+    Csomag(int _x, int _y) {
+        x = _x;
+        y = _y;
+    }
+};
+Csomag csomagfeltoltes() {
+    return Csomag(12,13);
+}
+Csomag csomagbetoltes() {
+    ifstream bef("atmenetifile.txt");
+    Csomag csomi;
+    bef >> csomi.x >> csomi.y;
+    bef.close();
+    return csomi;
+}
+bool anagramma(string s1, string s2) {
+    vector<int> v1(26,0), v2(26,0);
+    for (int i = 0; i < s1.size(); i++)
+        v1[s1[i]-97]++;
+    for (int i = 0; i < s2.size(); i++)
+        v2[s2[i]-97]++;
+    for (int i = 0; i < 26; i++)
+        if (v1[i] != v2[i])
+            return false;
+    return true;
+}
 
 // Idaig
 
 int main()
 {
-/*
     int pont = 0;
     srand(time(0));
     int a = masodikszamjegy(123); //10-es helyiertek
@@ -40,11 +74,14 @@ int main()
     Csomag cs2 = csomagbetoltes();
     ellenoriz(cs2.x==23 && cs2.y==vel, pont)
 
+/*
     string s1 = "abrakadabra";
     string s2 = "babadarabka";
     string s3 = "arabdarabka";
-    //anagramma: betűk átrendezésével megkapható-e az egyik szóból a másik
+    //anagramma: betűk átrendezésével megkapható-e az egyik szóból a másik?
     ellenoriz(anagramma(s1, s3) && !anagramma(s1, s2) && anagramma(s3,s1) && !anagramma(s2,s3), pont)
 */
-    cout << endl << pont << "/5 pont";
+    cout << endl << pont << "/5 pont" << endl;
+    int valm = 'z';
+    cout << valm << endl;
 }
