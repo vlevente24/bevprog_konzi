@@ -1,1 +1,0 @@
-// bevprog_2122_v1 feladatmegoldás
